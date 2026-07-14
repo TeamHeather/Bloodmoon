@@ -1,5 +1,6 @@
 plugins {
     id 'net.fabricmc.fabric-loom' version '1.17.13'
+    id 'java-library'
     id 'maven-publish'
 }
 
@@ -24,14 +25,15 @@ repositories {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
     implementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    api "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    implementation include("net.kyori:adventure-platform-fabric:7.0.0")
-    implementation include("net.kyori:adventure-text-minimessage:5.2.0")
+    implementation "net.kyori:adventure-platform-fabric:7.0.0"
+    implementation "net.kyori:adventure-text-minimessage:5.2.0"
 
-    implementation include("org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}")
-    implementation include("org.ladysnake.cardinal-components-api:cardinal-components-world:${project.cca_version}")
+    api "org.ladysnake.cardinal-components-api:cardinal-components-base:${project.cca_version}"
+    implementation "org.ladysnake.cardinal-components-api:cardinal-components-world:${project.cca_version}"
 }
 
 processResources {
