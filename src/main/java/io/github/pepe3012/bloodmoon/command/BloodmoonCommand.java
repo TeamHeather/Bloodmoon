@@ -1,10 +1,10 @@
-package io.github.pepe3012.arcadia.server.command;
+package io.github.pepe3012.bloodmoon.command;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import io.github.pepe3012.arcadia.common.component.world.bloodmoon.Bloodmoon;
+import io.github.pepe3012.bloodmoon.api.Bloodmoon;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
@@ -13,7 +13,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.permissions.Permissions;
 import org.jspecify.annotations.NonNull;
 
-public class BloodmoonCommand implements CommandRegistrationCallback {
+public final class BloodmoonCommand implements CommandRegistrationCallback {
+
+    public static final String ALREADY_ACTIVE = "commands.bloodmoon.already_active";
+    public static final String INACTIVE = "commands.bloodmoon.inactive";
+    public static final String START_SUCCESS = "commands.bloodmoon.start.success";
+    public static final String STOP_SUCCESS = "commands.bloodmoon.stop.success";
+    public static final String GET_SUCCESS = "commands.bloodmoon.get.success";
+    public static final String SET_SUCCESS = "commands.bloodmoon.set.success";
+    public static final String CHANGE_SUCCESS = "commands.bloodmoon.change.success";
+
     private static final String DURATION_ARGUMENT = "duration";
     private static final String REMAINING_TICKS_ARGUMENT = "remainingTicks";
     private static final String DELTA_ARGUMENT = "delta";
@@ -39,56 +48,53 @@ public class BloodmoonCommand implements CommandRegistrationCallback {
 
     private static int start(CommandContext<CommandSourceStack> context) {
         Bloodmoon bloodmoon = Bloodmoon.getInstance();
-        if (bloodmoon.isBloodmoonActive()) return fail(context, "The blood moon is already active.");
+        if (bloodmoon.isBloodmoonActive()) return fail(context, ALREADY_ACTIVE);
 
         int duration = IntegerArgumentType.getInteger(context, DURATION_ARGUMENT);
         bloodmoon.startBloodmoon(duration);
-        return success(context, "Started the blood moon for " + duration + " ticks.");
+        return success(context, START_SUCCESS, duration);
     }
 
     private static int stop(CommandContext<CommandSourceStack> context) {
         Bloodmoon bloodmoon = Bloodmoon.getInstance();
-        if (!bloodmoon.isBloodmoonActive()) return fail(context, "The blood moon is not active.");
+        if (!bloodmoon.isBloodmoonActive()) return fail(context, INACTIVE);
 
         bloodmoon.stopBloodmoon();
-        return success(context, "Stopped the blood moon.");
+        return success(context, STOP_SUCCESS);
     }
 
     private static int get(CommandContext<CommandSourceStack> context) {
         Bloodmoon bloodmoon = Bloodmoon.getInstance();
+        if (!bloodmoon.isBloodmoonActive()) return success(context, INACTIVE);
 
-        if (!bloodmoon.isBloodmoonActive()) {
-            return success(context, "The blood moon is not active.");
-        }
-
-        return success(context, "The blood moon has " + bloodmoon.getBloodmoonRemainingTicks() + " ticks remaining.");
+        return success(context, GET_SUCCESS, bloodmoon.getBloodmoonRemainingTicks());
     }
 
     private static int set(CommandContext<CommandSourceStack> context) {
         Bloodmoon bloodmoon = Bloodmoon.getInstance();
-        if (!bloodmoon.isBloodmoonActive()) return fail(context, "The blood moon is not active.");
+        if (!bloodmoon.isBloodmoonActive()) return fail(context, INACTIVE);
 
         int remainingTicks = IntegerArgumentType.getInteger(context, REMAINING_TICKS_ARGUMENT);
         bloodmoon.setBloodmoonRemainingTicks(remainingTicks);
-        return success(context, "Set the remaining blood moon duration to " + remainingTicks + " ticks.");
+        return success(context, SET_SUCCESS, remainingTicks);
     }
 
     private static int change(CommandContext<CommandSourceStack> context) {
         Bloodmoon bloodmoon = Bloodmoon.getInstance();
-        if (!bloodmoon.isBloodmoonActive()) return fail(context, "The blood moon is not active.");
+        if (!bloodmoon.isBloodmoonActive()) return fail(context, INACTIVE);
 
         int delta = IntegerArgumentType.getInteger(context, DELTA_ARGUMENT);
         bloodmoon.changeBloodmoonRemainingTicks(delta);
-        return success(context, "Changed the blood moon duration by " + delta + " ticks.");
+        return success(context, CHANGE_SUCCESS, delta);
     }
 
-    private static int success(CommandContext<CommandSourceStack> context, String message) {
-        context.getSource().sendSuccess(() -> Component.literal(message), true);
+    private static int success(CommandContext<CommandSourceStack> context, String key, Object... arguments) {
+        context.getSource().sendSuccess(() -> Component.translatable(key, arguments), true);
         return Command.SINGLE_SUCCESS;
     }
 
-    private static int fail(CommandContext<CommandSourceStack> context, String message) {
-        context.getSource().sendFailure(Component.literal(message));
+    private static int fail(CommandContext<CommandSourceStack> context, String key, Object... arguments) {
+        context.getSource().sendFailure(Component.translatable(key, arguments));
         return 0;
     }
 }

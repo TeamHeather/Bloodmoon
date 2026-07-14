@@ -1,4 +1,4 @@
-package io.github.pepe3012.bloodmoon.component;
+package io.github.pepe3012.bloodmoon.api;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
@@ -71,6 +71,8 @@ public final class Bloodmoon {
 
         this.showBossBar();
         this.updateBossBar();
+
+        BloodmoonEvents.STARTED.invoker().onStarted(this, durationTicks);
     }
 
     public void stopBloodmoon() {
@@ -83,6 +85,8 @@ public final class Bloodmoon {
         });
 
         this.hideBossBar();
+
+        BloodmoonEvents.STOPPED.invoker().onStopped(this);
     }
 
     public void setBloodmoonRemainingTicks(int remainingTicks) {
@@ -145,6 +149,8 @@ public final class Bloodmoon {
 
         this.updateBossBar();
         this.sync();
+
+        BloodmoonEvents.TICK.invoker().onTick(this, this.getBloodmoonRemainingTicks());
     }
 
     private void configureBossBar() {

@@ -11,25 +11,26 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "io.github.pepe3012.bloodmoon.client.BloodmoonDataGenerator"
-    ],
-    "client": [
-      "io.github.pepe3012.bloodmoon.client.BloodmoonClient"
+      "io.github.pepe3012.bloodmoon.datagen.BloodmoonDataGenerator"
     ],
     "main": [
-      "io.github.pepe3012.bloodmoon.Bloodmoon"
+      "io.github.pepe3012.bloodmoon.BloodmoonMod"
+    ],
+    "cardinal-components": [
+      "io.github.pepe3012.bloodmoon.api.BloodmoonComponent"
     ]
   },
   "mixins": [
-    "bloodmoon.mixins.json",
-    {
-      "config": "bloodmoon.client.mixins.json",
-      "environment": "client"
-    }
+    "bloodmoon.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "cardinal-components": [
+      "bloodmoon:base"
+    ]
   }
 }

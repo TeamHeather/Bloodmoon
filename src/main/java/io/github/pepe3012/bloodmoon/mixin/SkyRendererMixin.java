@@ -1,6 +1,6 @@
-package io.github.pepe3012.arcadia.mixin.client;
+package io.github.pepe3012.bloodmoon.mixin;
 
-import io.github.pepe3012.arcadia.common.component.world.bloodmoon.Bloodmoon;
+import io.github.pepe3012.bloodmoon.api.Bloodmoon;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;

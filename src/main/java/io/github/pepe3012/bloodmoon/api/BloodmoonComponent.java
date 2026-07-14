@@ -1,4 +1,4 @@
-package io.github.pepe3012.bloodmoon.component;
+package io.github.pepe3012.bloodmoon.api;
 
 import io.github.pepe3012.bloodmoon.BloodmoonMod;
 import net.minecraft.world.level.Level;

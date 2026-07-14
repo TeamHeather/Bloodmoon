@@ -1,0 +1,10 @@
+{
+  "bossbar.bloodmoon.remaining": "La Luna de Sangre termina en %s.",
+  "commands.bloodmoon.already_active": "La Luna de Sangre ya está activa.",
+  "commands.bloodmoon.change.success": "La duración restante de la Luna de Sangre se modificó en %s ticks.",
+  "commands.bloodmoon.get.success": "A la Luna de Sangre le quedan %s ticks.",
+  "commands.bloodmoon.inactive": "La Luna de Sangre no está activa.",
+  "commands.bloodmoon.set.success": "La duración restante de la Luna de Sangre se estableció en %s ticks.",
+  "commands.bloodmoon.start.success": "La Luna de Sangre ha comenzado y durará %s ticks.",
+  "commands.bloodmoon.stop.success": "La Luna de Sangre ha sido detenida."
+}

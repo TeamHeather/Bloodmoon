@@ -1,0 +1,10 @@
+{
+  "bossbar.bloodmoon.remaining": "The Blood Moon ends in %s.",
+  "commands.bloodmoon.already_active": "The Blood Moon is already active.",
+  "commands.bloodmoon.change.success": "The Blood Moon's remaining duration has been adjusted by %s ticks.",
+  "commands.bloodmoon.get.success": "The Blood Moon will remain active for %s more ticks.",
+  "commands.bloodmoon.inactive": "The Blood Moon is not currently active.",
+  "commands.bloodmoon.set.success": "The Blood Moon's remaining duration has been set to %s ticks.",
+  "commands.bloodmoon.start.success": "The Blood Moon has begun and will last %s ticks.",
+  "commands.bloodmoon.stop.success": "The Blood Moon has been stopped."
+}
