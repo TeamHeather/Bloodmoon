@@ -1,7 +1,7 @@
-package io.github.pepe3012.bloodmoon;
+package org.heather.bloodmoon;
 
-import io.github.pepe3012.bloodmoon.command.BloodmoonCommand;
-import io.github.pepe3012.bloodmoon.api.Bloodmoon;
+import org.heather.bloodmoon.command.BloodmoonCommand;
+import org.heather.bloodmoon.api.Bloodmoon;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;

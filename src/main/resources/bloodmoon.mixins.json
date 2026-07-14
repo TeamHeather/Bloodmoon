@@ -12,6 +12,6 @@
     "requireAnnotations": true
   },
   "client": [
-    "SkyRendererMixin"
+    "org.heather.bloodmoon.mixin.SkyRendererMixin"
   ]
 }

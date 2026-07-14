@@ -1,7 +1,7 @@
-package io.github.pepe3012.bloodmoon.datagen.lang;
+package org.heather.bloodmoon.datagen.lang;
 
-import io.github.pepe3012.bloodmoon.command.BloodmoonCommand;
-import io.github.pepe3012.bloodmoon.api.Bloodmoon;
+import org.heather.bloodmoon.command.BloodmoonCommand;
+import org.heather.bloodmoon.api.Bloodmoon;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;

@@ -1,7 +1,7 @@
-package io.github.pepe3012.bloodmoon.datagen;
+package org.heather.bloodmoon.datagen;
 
-import io.github.pepe3012.bloodmoon.datagen.lang.BloodmoonEnglishLanguageProvider;
-import io.github.pepe3012.bloodmoon.datagen.lang.BloodmoonSpanishLanguageProvider;
+import org.heather.bloodmoon.datagen.lang.BloodmoonEnglishLanguageProvider;
+import org.heather.bloodmoon.datagen.lang.BloodmoonSpanishLanguageProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 

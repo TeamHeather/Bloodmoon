@@ -1,6 +1,6 @@
-package io.github.pepe3012.bloodmoon.mixin;
+package org.heather.bloodmoon.mixin;
 
-import io.github.pepe3012.bloodmoon.api.Bloodmoon;
+import org.heather.bloodmoon.api.Bloodmoon;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;

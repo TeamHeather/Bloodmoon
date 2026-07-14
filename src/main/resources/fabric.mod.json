@@ -11,13 +11,13 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "io.github.pepe3012.bloodmoon.datagen.BloodmoonDataGenerator"
+      "org.heather.bloodmoon.datagen.BloodmoonDataGenerator"
     ],
     "main": [
-      "io.github.pepe3012.bloodmoon.BloodmoonMod"
+      "org.heather.bloodmoon.BloodmoonMod"
     ],
     "cardinal-components": [
-      "io.github.pepe3012.bloodmoon.api.BloodmoonComponent"
+      "org.heather.bloodmoon.api.BloodmoonComponent"
     ]
   },
   "mixins": [

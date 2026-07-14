@@ -1,10 +1,10 @@
-package io.github.pepe3012.bloodmoon.command;
+package org.heather.bloodmoon.command;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import io.github.pepe3012.bloodmoon.api.Bloodmoon;
+import org.heather.bloodmoon.api.Bloodmoon;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
