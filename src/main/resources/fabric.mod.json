@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "bloodmoon",
+  "version": "${version}",
+  "name": "Bloodmoon",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/bloodmoon/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "io.github.pepe3012.bloodmoon.client.BloodmoonDataGenerator"
+    ],
+    "client": [
+      "io.github.pepe3012.bloodmoon.client.BloodmoonClient"
+    ],
+    "main": [
+      "io.github.pepe3012.bloodmoon.Bloodmoon"
+    ]
+  },
+  "mixins": [
+    "bloodmoon.mixins.json",
+    {
+      "config": "bloodmoon.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
